@@ -1,0 +1,34 @@
+def selection_sort(arr):
+    # بنحسب عدد العناصر في القائمة
+    n = len(arr)
+
+    # حلقة بتمر على كل العناصر ماعدا آخر عنصر
+    for i in range(n - 1):
+
+        # بنفترض إن العنصر الحالي هو الأصغر
+        min_index = i
+
+        # بندور على أصغر عنصر في الجزء الباقي من القائمة
+        for j in range(i + 1, n):
+
+            # لو لقينا عنصر أصغر من الحالي، بنحدث موقعه
+            if arr[j] < arr[min_index]:
+                min_index = j
+
+        # بعد ما نخلص البحث، بنبدل بين العنصر الحالي وأصغر عنصر لقيناه
+        arr[i], arr[min_index] = arr[min_index], arr[i]
+
+    # بنرجع القائمة بعد الترتيب
+    return arr
+
+
+
+numbers = [64, 25, 12, 22, 11]
+
+print("Before sorting:", numbers)
+
+
+sorted_numbers = selection_sort(numbers)
+
+
+print("After sorting:", sorted_numbers)
